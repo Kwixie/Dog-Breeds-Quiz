@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dog breeds quiz - game</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="game.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Neucha&family=Raleway&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="imageContainer">
+      <img src="" alt="guess-dog" id="dogImg" />
+    </div>
+    <div id="buttons">
+      <div id="ansOptions">
+        <button id="ansOp1" class="ansBtn opt"></button>
+        <button id="ansOp2" class="ansBtn opt"></button>
+        <button id="ansOp3" class="ansBtn opt"></button>
+        <button id="ansOp4" class="ansBtn opt"></button>
+      </div>
+      <div id="practiceBtns">
+        <a class="btn" id="quitBtn" href="/index.html"> Quit practicing </a>
+        <button class="btn hidden" id="nextDogBtnPractice">Next dog</button>
+      </div>
+    </div>
+
+    <script src="dogBreeds.js"></script>
+    <script src="practice.js"></script>
+  </body>
+</html>

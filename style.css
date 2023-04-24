@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Roboto:wght@400;700&family=Space+Mono:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Neucha", cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(./img/micro_carbon.png);
+  text-align: center;
+  margin: 0;
+  padding: 1rem;
+  color: aliceblue;
+}
+
+header {
+  max-width: 500px;
+  margin: 2rem 0rem;
+}
+
+@media (max-width: 480px) {
+  header {
+    margin-bottom: 0.5rem;
+  }
+}
+
+h1 {
+  font-size: 60px;
+  color: hsl(294, 100%, 70%);
+  text-shadow: 2px 2px 3px black;
+}
+
+h2 {
+  letter-spacing: 1px;
+}
+
+.btn {
+  align-items: center;
+  background-image: radial-gradient(hsl(294, 100%, 50%), hsl(294, 100%, 75%));
+  border: 0;
+  border-radius: 16px;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: flex;
+  font-family: "Neucha", cursive;
+  font-size: 16px;
+  justify-content: center;
+  align-items: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+}
+
+@media (max-width: 480px) {
+  .btn {
+    font-size: 20px;
+    border-radius: 16px;
+  }
+}
+
+.btn:hover {
+  background-image: radial-gradient(hsl(294, 100%, 60%), hsl(294, 100%, 75%));
+  transition: 300ms;
+}
+
+.startBtn {
+  position: relative;
+  overflow: hidden;
+}
+
+.startBtn:before {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  top: -180px;
+  left: 0;
+  width: 30px;
+  height: 100%;
+  background-color: #fff;
+  animation: shiny-btn1 3s ease-in-out infinite;
+}
+
+#intro {
+  margin-top: 1rem;
+}
+
+#imageContainer {
+  max-height: 380px;
+  min-width: 340px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 1rem 0rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#dogImg {
+  width: 340px;
+  height: auto;
+}
+
+#startBtns {
+  display: flex;
+  margin: 1rem 0rem;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes shiny-btn1 {
+  0% {
+    -webkit-transform: scale(0) rotate(45deg);
+    opacity: 0;
+  }
+  80% {
+    -webkit-transform: scale(0) rotate(45deg);
+    opacity: 0.5;
+  }
+  81% {
+    -webkit-transform: scale(4) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(50) rotate(45deg);
+    opacity: 0;
+  }
+}

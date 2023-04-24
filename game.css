@@ -1,0 +1,129 @@
+h3 span {
+  color: hsl(294, 46%, 46%);
+}
+
+.score {
+  display: flex;
+  justify-content: space-between;
+  min-width: 350px;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 400px) {
+  .score {
+    min-width: 300px;
+  }
+}
+
+.ansBtn {
+  font-family: "Neucha", cursive;
+  font-size: 16px;
+  width: 100%;
+  margin: 0.3rem auto;
+  padding: 0.3rem;
+  background-color: white;
+  border: 2px hsl(294, 100%, 50%) solid;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 480px) {
+  .ansBtn {
+    font-size: 20px;
+  }
+}
+
+.ansBtn:hover {
+  cursor: pointer;
+  box-shadow: 0 0.2rem 1.4rem 0 rgba(198, 165, 136, 0.5);
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
+}
+
+.correctAnswer {
+  background-color: hsl(294, 100%, 50%);
+}
+
+.correctAnswer:before {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  top: -180px;
+  left: 0;
+  width: 30px;
+  height: 100%;
+  background-color: #fff;
+  animation: shiny-btn1 2s ease-out infinite;
+}
+
+#progressDiv {
+  padding-bottom: 0.5rem;
+}
+
+#progressBar {
+  width: 10rem;
+  height: 1.55rem;
+  border: 0.2rem solid hsl(294, 100%, 65%);
+  border-radius: 12px;
+}
+
+#progressBarFull {
+  height: 1.3rem;
+  background: radial-gradient(hsl(294, 100%, 50%), hsl(294, 100%, 70%));
+  width: 0%;
+  border-radius: 8px;
+}
+
+#ansOptions {
+  max-width: 350px;
+  margin-top: 1rem;
+}
+
+#scoreCount {
+  font-size: 14px;
+  text-align: end;
+  align-self: center;
+}
+
+#nextDogBtn {
+  padding: 0.5rem;
+  margin: 1.5rem auto;
+  max-width: 120px;
+}
+
+.centerBody {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#gameFinished {
+  margin: 2rem auto 2rem auto;
+}
+
+#gameAgainBtn {
+  margin: 2rem auto;
+}
+
+/* Practice */
+
+#practiceBtns {
+  display: flex;
+  justify-content: space-between;
+  padding: 0rem 1rem;
+}
+
+#nextDogBtnPractice,
+#quitBtn {
+  padding: 0.7rem;
+  margin: 1.5rem 0.1rem;
+  max-width: 140px;
+  display: inline-block;
+}
+
+#nextDogBtnPractice {
+  border: 3px solid white;
+}
