@@ -138,7 +138,7 @@ function endGame() {
   div.innerHTML = `
             <h1 id="">End of game</h1>
             <h2 id="gameFinished">You guessed ${correct} correct answers out of 20!</h2>
-            <a class="btn gameAgainBtn" href="/index.html">Play Again</a>
+            <a class="btn gameAgainBtn" href="/Dog-Breeds-Quiz/index.html">Play Again</a>
         `;
   documentBody.classList.add("centerBody");
   documentBody.appendChild(div);
