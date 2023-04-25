@@ -5,16 +5,12 @@ const ansOp2 = document.querySelector("#ansOp2");
 const ansOp3 = document.querySelector("#ansOp3");
 const ansOp4 = document.querySelector("#ansOp4");
 const nextDogBtn = document.querySelector("#nextDogBtnPractice");
-const imageDiv = document.querySelector("#imageContainer");
-const buttonsDiv = document.querySelector("#buttons");
 
 const prevDogs = [];
 let dog = {};
 const answersArray = [ansOp1, ansOp2, ansOp3, ansOp4];
 let correctOpt = 1;
 let haveClicked = false;
-
-console.log(ansOptions);
 
 ansOp1.addEventListener("click", checkResult);
 ansOp2.addEventListener("click", checkResult);
@@ -35,7 +31,6 @@ const fetchData = async (searchTerm) => {
     return response.data[0];
   } catch (error) {
     console.log(error);
-    fetchData();
   }
 };
 
@@ -43,11 +38,12 @@ async function nextDog() {
   let randIndex = Math.floor(Math.random() * dogBreeds.length);
   while (prevDogs.some((idx) => idx === randIndex)) {
     randIndex = Math.floor(Math.random() * dogBreeds.length);
-    console.log(randIndex);
   }
   prevDogs.push(randIndex);
   dog = await fetchData(dogBreeds[randIndex]);
-  console.log(dog);
+    if (dog.name === "American Pit Bull Terrier" || "Saint Bernard") {
+    return nextDog();
+  }
 
   haveClicked = false;
 
@@ -78,7 +74,6 @@ async function nextDog() {
   ansOp4.innerText = answerArray[3];
 
   correctOpt = answerArray.findIndex(correctAnswer);
-  console.log(correctOpt);
 }
 
 function checkResult(e) {
@@ -100,7 +95,6 @@ function checkResult(e) {
 function shuffle(array) {
   let currentIndex = array.length,
     randomIndex;
-  console.log(randomIndex);
 
   while (currentIndex != 0) {
     randomIndex = Math.floor(Math.random() * currentIndex);
