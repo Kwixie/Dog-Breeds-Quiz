@@ -41,9 +41,6 @@ async function nextDog() {
   }
   prevDogs.push(randIndex);
   dog = await fetchData(dogBreeds[randIndex]);
-    if (dog.name === "American Pit Bull Terrier" || "Saint Bernard") {
-    return nextDog();
-  }
 
   haveClicked = false;
 
