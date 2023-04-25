@@ -1,9 +1,7 @@
 const nextBtn = document.querySelector("#nextBtn");
 const ansOptions = document.querySelector("#ansOptions");
-const startBtns = document.querySelector("#startBtns");
 const correctSpan = document.querySelector("#correct");
 const wrongSpan = document.querySelector("#wrong");
-const intro = document.querySelector("#intro");
 const ansOp1 = document.querySelector("#ansOp1");
 const ansOp2 = document.querySelector("#ansOp2");
 const ansOp3 = document.querySelector("#ansOp3");
@@ -11,12 +9,6 @@ const ansOp4 = document.querySelector("#ansOp4");
 const noQuestionSpan = document.querySelector("#noQuestion");
 const nextDogBtn = document.querySelector("#nextDogBtn");
 const progressBarFull = document.querySelector("#progressBarFull");
-const allDivs = document.querySelectorAll("div");
-console.log(allDivs);
-
-const scoreDiv = document.querySelector(".score");
-const imageDiv = document.querySelector("#imageContainer");
-const buttonsDiv = document.querySelector("#buttons");
 const documentBody = document.querySelector("body");
 
 const prevDogs = [];
@@ -27,8 +19,6 @@ let dog = {};
 const answersArray = [ansOp1, ansOp2, ansOp3, ansOp4];
 let correctOpt = 1;
 let haveClicked = false;
-
-console.log(ansOptions);
 
 ansOp1.addEventListener("click", checkResult);
 ansOp2.addEventListener("click", checkResult);
@@ -49,7 +39,6 @@ const fetchData = async (searchTerm) => {
     return response.data[0];
   } catch (error) {
     console.log(error);
-    fetchData();
   }
 };
 
@@ -61,6 +50,10 @@ async function nextDog() {
   }
   prevDogs.push(randIndex);
   dog = await fetchData(dogBreeds[randIndex]);
+  if (dog.name === "American Pit Bull Terrier" || "Saint Bernard") {
+    nextDog();
+  }
+  
   console.log(dog);
 
   haveClicked = false;
@@ -96,7 +89,6 @@ async function nextDog() {
   ansOp4.innerText = answerArray[3];
 
   correctOpt = answerArray.findIndex(correctAnswer);
-  console.log(correctOpt);
 }
 
 function checkResult(e) {
@@ -127,7 +119,6 @@ function checkResult(e) {
 function shuffle(array) {
   let currentIndex = array.length,
     randomIndex;
-  console.log(randomIndex);
 
   while (currentIndex != 0) {
     randomIndex = Math.floor(Math.random() * currentIndex);
