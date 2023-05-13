@@ -16,6 +16,7 @@ let correct = 0;
 let wrong = 0;
 let dogCount = 0;
 let dog = {};
+let dogName = "";
 const answersArray = [ansOp1, ansOp2, ansOp3, ansOp4];
 let correctOpt = 1;
 let haveClicked = false;
@@ -42,15 +43,21 @@ const fetchData = async (searchTerm) => {
   }
 };
 
-async function nextDog() {
+const getRandomDogName = () => {
   let randIndex = Math.floor(Math.random() * dogBreeds.length);
   while (prevDogs.some((idx) => idx === randIndex)) {
     randIndex = Math.floor(Math.random() * dogBreeds.length);
     console.log(randIndex);
   }
   prevDogs.push(randIndex);
-  dog = await fetchData(dogBreeds[randIndex]);
-  
+  dogName = dogBreeds[randIndex];
+  console.log(dogName);
+};
+
+async function nextDog() {
+  getRandomDogName();
+  dog = await fetchData(dogName);
+
   console.log(dog);
 
   haveClicked = false;
@@ -72,11 +79,21 @@ async function nextDog() {
     "dogImg"
   ).src = `https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`;
 
-  const answerArray = [];
-  answerArray.push(dogBreeds[Math.floor(Math.random() * dogBreeds.length)]);
-  answerArray.push(dogBreeds[Math.floor(Math.random() * dogBreeds.length)]);
-  answerArray.push(dogBreeds[Math.floor(Math.random() * dogBreeds.length)]);
-  answerArray.push(dogBreeds[randIndex]);
+  let randOp1 = dogBreeds[Math.floor(Math.random() * dogBreeds.length)];
+  while (randOp1 === dogName) {
+    randOp1 = dogBreeds[Math.floor(Math.random() * dogBreeds.length)];
+  }
+  let randOp2 = dogBreeds[Math.floor(Math.random() * dogBreeds.length)];
+  while (randOp2 === dogName || randOp2 === randOp1) {
+    randOp2 = dogBreeds[Math.floor(Math.random() * dogBreeds.length)];
+  }
+  let randOp3 = dogBreeds[Math.floor(Math.random() * dogBreeds.length)];
+  while (randOp3 === dogName || randOp3 === randOp2 || randOp3 === randOp2) {
+    randOp3 = dogBreeds[Math.floor(Math.random() * dogBreeds.length)];
+  }
+
+  let answerArray = [dogName, randOp1, randOp2, randOp3];
+
   console.log(answerArray);
   shuffle(answerArray);
 
@@ -145,3 +162,4 @@ function endGame() {
 }
 
 nextDog();
+
