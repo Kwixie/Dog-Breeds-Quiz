@@ -88,7 +88,6 @@ const dogBreeds = [
   "Golden Retriever",
   "Gordon Setter",
   "Great Dane",
-  "Great Pyrenees",
   "Greyhound",
   "Griffon Bruxellois",
   "Harrier",
